@@ -1,0 +1,39 @@
+%section.content-header
+  %h1
+    Produtos  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Produtos
+/ Main content
+%section.content
+  .col-xs-12
+    %p
+      = link_to "Novo Produto", new_admin_product_path, :class => "btn btn-primary" 
+    .box
+      .box-header
+        %h3.box-title 
+          Produtos Cadastrados
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th=t("activerecord.attributes.product.title")
+            %th=t("activerecord.attributes.product.published")
+            %th=t("actions")
+          - for product in @products
+            %tr
+              %td= product.title 
+              %td= show_boolean(product.published)                
+              %td 
+                = link_to t("show"), [:admin, product], :class => "btn btn-default"
+                = link_to t("edit"), edit_admin_product_path(product), :class => "btn btn-default"
+                = link_to t("destroy"), [:admin, product], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
+                = link_to "Imagens do Produto", admin_product_product_images_path(product), :class => "btn btn-success"
+                = link_to "Informações Técnicas", admin_product_product_informations_path(product), :class => "btn btn-success"
+
+
+    %p
+      = link_to "Novo Produto", new_admin_product_path, :class => "btn btn-primary"

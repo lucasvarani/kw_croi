@@ -1,0 +1,32 @@
+= form_for [:admin, @team] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho.
+  .box-body
+    
+    .form-group
+      = f.label :Nome
+      = f.text_field :title, :class => "form-control" , :placeholder => t("activerecord.attributes.category.title") 
+    .form-group
+      = f.label :CROSP
+      = f.text_field :subtitle, :class => "form-control", :placeholder => t("activerecord.attributes.category.subtitle") 
+    .form-group 
+      = f.label :Descrição
+      = f.text_area :description, :class => "form-control tinymce", :placeholder => t("activerecord.attributes.category.description")
+    .form-group 
+      = f.label :Publicado
+      = f.check_box :published, :class => "form-control" 
+    / .form-group
+    /   = f.label :Foto
+    /   = f.file_field :image_team, :class => "form-control"  
+    / - if @team.image_team.file?
+    /   .form-group
+    /     =image_tag(@team.image_team.url)
+  .box-footer
+    =f.submit nil, :class => "btn btn-primary", :value => "Criar Equipe" 
+
+-content_for(:footer) do
+  = tinymce

@@ -1,0 +1,43 @@
+%section.content-header
+  %h1
+    Imagens do Produto -
+    = "#{@product.title}"
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-dashboard
+        Home
+    %li
+      %a{:href => "#{admin_products_path()}"}
+        %i.fa.fa-dashboard
+        Produtos  
+    %li.active Imagem do Produto
+     
+
+/ Main content
+%section.content
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="#{@product_image.title}" 
+        .box-body  
+          %p="#{t("activerecord.attributes.product_image.order")}: #{@product_image.order}"          
+        .box-body  
+          %p="#{t("activerecord.attributes.product_image.published")}: #{show_boolean(@product_image.published)}"      
+      - if @product_image.image_product.file?
+        .box-body
+          %p=image_tag(@product_image.image_product.url(:thumb))   
+        .box-body
+          %p=image_tag(@product_image.image_product.url(:medium))  
+        .box-body
+          %p=image_tag(@product_image.image_product.url(:original))  
+
+
+  = link_to t("back_list"), admin_product_product_images_path(@product), :class => "btn btn-default"
+  = link_to t("edit"), edit_admin_product_product_image_path(@product, @product_image), :class => "btn btn-default"
+  = link_to "Nova Imagem do Produto", new_admin_product_product_image_path(@product), :class => "btn btn-primary"
+

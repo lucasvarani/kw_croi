@@ -1,0 +1,46 @@
+%section.content-header
+  %h1
+    Equipe 
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Equipe
+
+
+/ Main content
+%section.content   
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="#{@team.title}"
+
+        .box-body  
+          %p
+            %b= "#{t("activerecord.attributes.category.subtitle")}:"
+            %br
+            = raw @team.subtitle   
+        .box-body  
+          %p
+            %b= "#{t("activerecord.attributes.category.description")}:"
+            %br
+            = raw @team.description        
+        .box-body  
+          %p
+            %b= "#{t("activerecord.attributes.category.published")}: "
+            = show_boolean(@team.published)   
+
+          / .box-body
+          /   %b= "#{t("activerecord.attributes.category.image_category")}:" 
+          /   %p=image_tag(@team.image_team.url)
+
+  = link_to t("back_list"), admin_teams_path, :class => "btn btn-default"
+  |
+  = link_to t("edit"), edit_admin_team_path(@team), :class => "btn btn-default" 
+  |
+  = link_to "Deletar", [:admin, @team], :class => "btn btn-default", :confirm => 'Are you sure?', :method => :delete  

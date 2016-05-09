@@ -1,0 +1,25 @@
+%header.container-fluid.header-home
+  .row
+    .col-md-1
+    .logo.col-md-2
+      %a{:href => "/"}
+        %img{:src => "assets/logo-home.png"}/
+    .col-xs-3.xs-only.menu-float
+      .container-fluid.menuprincipal
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#menu-principal", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+    .col-md-6.col-sm-8.col-xs-12
+      %nav.navbar{:role => "navigation"}
+        #menu-principal.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "/", :target => "_self"} O CROI
+            %li
+              %a{:href => "/services", :target => "_self"} Especialidades
+            %li
+              %a{:href => "/teams", :target => "_self"} Equipe
+            %li
+              %a{:href => "/contacts", :target => "_self"} Atendimento

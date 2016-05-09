@@ -1,0 +1,21 @@
+- title "Admin/Product Information"
+
+%p
+  %strong Attribute:
+  = @product_information.attribute
+%p
+  %strong Value:
+  = @product_information.value
+%p
+  %strong Active:
+  = @product_information.active
+%p
+  %strong Published:
+  = @product_information.published
+
+%p
+  = link_to "Edit", edit_admin_product_information_path(@product_information)
+  |
+  = link_to "Destroy", [:admin, @product_information], :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", admin_product_informations_path

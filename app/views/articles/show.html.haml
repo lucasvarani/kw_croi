@@ -1,0 +1,19 @@
+%section.destaque.promocoes
+  .container
+    .row
+      .col-sm-6
+        %h1 Notícias
+%section.promocoes-itens.margin-top-60.margin-bottom-60
+  .container
+    .row
+      .col-sm-12.text-center.margin-bottom-60
+        %h2 Confira as nossas notícias
+      
+      .clearfix
+      
+        -@articles.each do |article|
+          .col-sm-4.text-center
+            %img.img-circle{:src => "#{article.image_article.url()}"}
+            %h3=article.title
+            %p
+              =article.description

@@ -1,0 +1,46 @@
+%section.content-header
+  %h1
+    Imagens do Produto -
+    = "#{@product.title}" 
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li
+      %a{:href => "#{admin_products_path()}"}
+        %i.fa.fa-dashboard
+        Produtos 
+    %li.active Imagens do Produto
+/ Main content
+%section.content
+  .col-xs-12
+    %p= link_to "Nova Imagem do Produto", new_admin_product_product_image_path(@product), :class => "btn btn-primary"
+    
+    .box
+      .box-header
+        %h3.box-title Imagens Cadastrados do Produto 
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th=t("activerecord.attributes.product_image.image_product")
+            %th=t("activerecord.attributes.product_image.title")
+            %th=t("activerecord.attributes.product_image.order")
+            %th=t("activerecord.attributes.product_image.published")
+            %th=t("actions")
+          - for product_image in @product_images 
+            %tr
+              %td=image_tag(product_image.image_product.url(:thumb))   
+              %td= product_image.title
+              %td= product_image.order 
+              %td= show_boolean(product_image.published)                
+              %td 
+                = link_to t("show"), admin_product_product_image_path(@product,product_image), :class => "btn btn-default"
+                = link_to t("edit"), edit_admin_product_product_image_path(@product, product_image), :class => "btn btn-default"
+                = link_to t("destroy"), admin_product_product_image_path(@product,product_image), :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger" 
+
+    %p= link_to "Nova Imagem do Produto", new_admin_product_product_image_path(@product), :class => "btn btn-primary"
+
+
+

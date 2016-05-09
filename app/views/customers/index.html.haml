@@ -1,0 +1,35 @@
+/ %section.highlight.hidden-xs
+/   .container-fluid
+/     .row
+/       .cycle-slideshow
+/         .show-slide-box
+/           =image_tag("bg-customer.jpg", :class => "hidden-xs fixed-highlight")
+/           .container.show_text_highlight
+/             %p.text-center.text-uppercase.text-highlight CLIENTES
+/             /%p.text-center.text-highlight.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+/ %section.interna#customer
+/   .container-fluid
+/     .row
+/       .container
+/         %p.breadcrumb > Kattios/Clientes
+/         .col-md-12
+
+/           - i = 0
+/           -@customers.each do |customer|
+/             .col-md-6.show-customer
+/               %p.col-md-11.col-md-offset-1
+/                 =image_tag("ico-customer.png")
+/                 %span.customer-title=customer.title
+/               .col-md-8.col-md-offset-2.text-center.margin-bottom-40
+/                 %p.customer-logo.text-center
+/                   =image_tag(customer.company_logo, :class=> "image-resize")
+/                 %p.customer-description
+/                   =customer.description
+/                 %p.presentation="#{customer.title} - Kattios Marketing"
+/                 %p.customer-performed
+/                   =customer.services_performed
+/             -if i == 0
+/               - i = i + 1
+/             -else
+/               - i = 0
+/               .clearfix

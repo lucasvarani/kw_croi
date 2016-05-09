@@ -1,0 +1,20 @@
+-@articles.each do |article|
+  .col-md-6.article_show
+    .row
+      -if article.image_article.file?
+        .col-md-2.image_box
+          = image_tag(article.image_article.url, :class=>"img-responsive center-block")
+        .col-md-10
+          %h2=article.title
+          =link_to (raw(article.tag_list.map{ |t| link_to("#"+t, search_homes_path(:tag =>"#"+t), :remote => true)}.join(' ')),"#", :class => "hashtag")
+          %br
+          /=link_to(truncate(article.description, :length => 400, :separator => ' ').html_safe, article_path(article.id), :class =>"fancybox fancybox.iframe")
+          =link_to(strip_tags(truncate(article.description, :length => 400, :separator => ' ')).html_safe, article_path(article.id), :class =>"fancybox fancybox.iframe")
+      -else
+        .col-md-12
+          %h2=article.title
+          =link_to (raw(article.tag_list.map{ |t| link_to("#"+t, search_homes_path(:tag =>"#"+t), :remote => true)}.join(' ')),"#", :class => "hashtag")
+          %br
+          /=link_to(truncate(article.description, :length => 400, :separator => ' ').html_safe, article_path(article.id), :class =>"fancybox fancybox.iframe")
+          =link_to(strip_tags(truncate(article.description, :length => 400, :separator => ' ')).html_safe, article_path(article.id), :class =>"fancybox fancybox.iframe")
+      

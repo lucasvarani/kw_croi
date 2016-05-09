@@ -1,0 +1,54 @@
+%section.content-header
+  %h1
+    Subcategorias  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home       
+    - if @category.father_id.blank?
+      %li
+        %a{:href => "#{admin_categories_path()}"}
+          %i.fa.fa-dashboard
+          Categorias
+    - else
+      %li
+        %a{:href => "#{admin_categories_path()}"}
+          %i.fa.fa-dashboard
+          Categorias
+      %li
+        %a{:href => "#{admin_category_subcategories_path(@category)}"}
+          %i.fa.fa-dashboard
+          =@category.title    
+    %li.active Subcategorias
+/ Main content
+%section.content
+  .col-xs-12
+    %p
+      = link_to "Nova Subcategoria", new_admin_category_subcategory_path(@category), :class => "btn btn-primary" 
+    .box
+      .box-header
+        %h3.box-title 
+          Subcategorias Cadastradas de  
+          =@category.title
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th=t("activerecord.attributes.category.image_category")
+            %th=t("activerecord.attributes.category.title") 
+            %th=t("activerecord.attributes.category.published")
+            %th=t("actions")
+          - for subcategory in @subcategories 
+            %tr
+              %td= image_tag(subcategory.image_category) if subcategory.image_category.file?
+              %td= subcategory.title 
+              %td= show_boolean(subcategory.published)                
+              %td 
+                = link_to t("show"), admin_category_subcategory_path(@category, subcategory), :class => "btn btn-default"
+                = link_to t("edit"), edit_admin_category_subcategory_path(@category,subcategory), :class => "btn btn-default"
+                = link_to t("destroy"), admin_category_subcategory_path(@category, subcategory), :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
+                = link_to "Subcategoria de #{subcategory.title}", admin_category_subcategories_path(subcategory), :class => "btn btn-success"
+
+    %p
+      = link_to "Nova Subcategoria", new_admin_category_subcategory_path(@category), :class => "btn btn-primary"

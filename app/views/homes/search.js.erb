@@ -1,0 +1,4 @@
+$('#show_noticias').html(" ");
+$('#show_noticias').html("<%=escape_javascript(render('articles'))%>");  
+$('#input_search').val("<%=escape_javascript(params[:tag])%>"); 
+$('#paginate').html("<%=escape_javascript(paginate @articles)%>") 

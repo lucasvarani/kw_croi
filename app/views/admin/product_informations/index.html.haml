@@ -1,0 +1,39 @@
+%section.content-header
+  %h1
+    Informação Técnicas -
+    = "#{@product.title}" 
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li
+      %a{:href => "#{admin_products_path()}"}
+        %i.fa.fa-dashboard
+        Produtos 
+    %li.active Informação Técnicas
+/ Main content
+%section.content
+  .col-xs-12
+    %p= link_to "Nova Informação Técnica", new_admin_product_product_information_path(@product), :class => "btn btn-primary"
+    
+    .box
+      .box-header
+        %h3.box-title Informação Técnicas
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th=t("activerecord.attributes.product_information.attribute_title")
+            %th=t("activerecord.attributes.product_information.value")
+            %th=t("actions")
+          - for product_information in @product_informations 
+            %tr
+              %td= product_information.attribute_title
+              %td= product_information.value          
+              %td 
+                /= link_to t("show"), admin_product_product_information_path(@product,product_information), :class => "btn btn-default"
+                = link_to t("edit"), edit_admin_product_product_information_path(@product, product_information), :class => "btn btn-default"
+                = link_to t("destroy"), admin_product_product_information_path(@product,product_information), :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger" 
+
+    %p= link_to "Nova Informação Técnica", new_admin_product_product_information_path(@product), :class => "btn btn-primary"

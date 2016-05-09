@@ -1,0 +1,26 @@
+= form_for [:admin, @product, @product_image] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho. 
+  .box-body
+    .form-group
+      = f.label :title
+      = f.text_field :title, :class => "form-control", :placeholder => t("activerecord.attributes.product_image.title") 
+    .form-group 
+      = f.label :order
+      = f.number_field :order
+    .form-group 
+      = f.label :published
+      = f.check_box :published    
+    .form-group
+      = f.label :image_product
+      = f.file_field :image_product, :class => "form-control" 
+  - if @product_image.image_product.file?
+    .form-group
+      =image_tag(@product_image.image_product.url(:original))
+                                                  
+  .box-footer
+    =f.submit nil, :class => "btn btn-primary" 

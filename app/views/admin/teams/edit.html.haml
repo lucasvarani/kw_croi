@@ -1,0 +1,9 @@
+- title "Edit Admin/Team"
+
+= render 'form'
+
+
+%p
+  = link_to "Exibir", [:admin, @team], :class => "btn btn-default" 
+  |
+  = link_to "Voltar", admin_teams_path, :class => "btn btn-default" 

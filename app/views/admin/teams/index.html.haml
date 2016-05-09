@@ -1,0 +1,43 @@
+- title "Admin/Teams"
+
+%section.content-header
+  %h1
+    Equipe  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Equipe
+    
+
+%section.content
+  .col-xs-12
+    %p
+      = link_to "Novo Doutor(a)", new_admin_team_path, :class => "btn btn-primary" 
+    .box
+      .box-header
+        %h3.box-title 
+          Doutores Cadastrados
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            / %th=t("activerecord.attributes.team.Foto")
+            %th=t("activerecord.attributes.team.Nome") 
+            %th=t("activerecord.attributes.team.CROSP")
+            %th=t("activerecord.attributes.team.Publicado")
+            %th=t("actions")
+          - for team in @teams 
+            %tr
+              / %td= image_tag(team.image_team, :size => "100x100") if team.image_team.file?
+              %td= team.title 
+              %td= team.subtitle
+              %td= show_boolean(team.published)                
+              %td 
+                = link_to t("show"), [:admin, team], :class => "btn btn-default"
+                = link_to t("edit"), edit_admin_team_path(team), :class => "btn btn-default"
+                = link_to t("destroy"), [:admin, team], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
+
+    %p
+      = link_to "Novo Doutor(a)", new_admin_team_path, :class => "btn btn-primary"
