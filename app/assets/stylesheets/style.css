@@ -3,7 +3,7 @@
 .logo{margin-top: 21px;}
 
 .header-interna nav ul{list-style: none; font: 400 18px / 56.933px Titillium Web;margin-top: 13px;}
-.header-interna nav ul a{color: #feffff;}
+.header-interna nav ul a{color: #feffff;font-size: 19px;}
 @media (max-width: 767px){
 	.header-interna nav ul a{color: #0f5c5d;}
 }
@@ -14,7 +14,7 @@
 .header-interna nav ul a li{display: inline;margin-right: 30px;}
 
 .header-home nav ul{list-style: none; font: 400 18px / 56.933px Titillium Web;margin-top: 13px;}
-.header-home nav ul a{color: #1cb9bd;}
+.header-home nav ul a{color: #1cb9bd;font-size: 19px;}
 .header-home nav ul a:hover{text-decoration: none;}
 .header-home nav ul a li{display: inline;margin-right: 30px;}
 
