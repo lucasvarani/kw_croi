@@ -75,7 +75,7 @@ GEM
     mocha (1.0.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.0)
-    mysql2 (0.3.11)
+    mysql2 (0.3.17)
     nifty-generators (0.4.6)
     paperclip (2.8.0)
       activerecord (>= 2.3.0)
@@ -158,7 +158,7 @@ DEPENDENCIES
   json (= 1.8.0)
   mail (= 2.5.3)
   mocha
-  mysql2 (= 0.3.11)
+  mysql2 (= 0.3.17)
   nifty-generators
   paperclip (~> 2.7)
   rails (= 3.2.13)
@@ -171,3 +171,6 @@ DEPENDENCIES
   wicked_pdf
   will_paginate
   wkhtmltopdf-binary
+
+BUNDLED WITH
+   1.12.4

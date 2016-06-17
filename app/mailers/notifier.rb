@@ -11,7 +11,7 @@ class Notifier < ActionMailer::Base
   def send_contact(contact)
     @contact = contact
     
-    mail(:to => "log@korewa.com.br", :bcc => "log@korewa.com.br", :subject => "Novo contato pelo site - Protocolo Nº#{@contact.id} ")   
+    mail(:to => "contato@croiodontologia.com.br", :bcc => "log@korewa.com.br", :subject => "Novo contato pelo site - Protocolo Nº#{@contact.id} ")   
   end
 
   

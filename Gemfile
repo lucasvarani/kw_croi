@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 #-== Inicio ==- gems basicas do sistema 
 gem 'jquery-rails'
 gem 'json', '1.8.0'
-gem 'mysql2', '0.3.11'  
+gem 'mysql2', '0.3.17'  
 gem 'rails', '3.2.13'
 gem 'mail', '2.5.3'
 #-== Fim ==- gems basicas do sistema
